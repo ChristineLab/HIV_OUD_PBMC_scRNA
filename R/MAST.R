@@ -59,7 +59,7 @@ de_results <- lapply(levels(sc_filtered$celltype), function(celltype){
   colData(sca_sub)$Condition <- cond
   
   #Fit the model
-  zlm_fit <- zlm(~ Condition + Age + Sex + (1|new_ID), sca = sca_sub)
+  zlm_fit <- zlm(~ Condition + Age + Sex, sca = sca_sub)
 
   #Extract DE Results
   de_table <- summary(zlm_fit, doLRT = paste0("Condition", condition))$datatable
